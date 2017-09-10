@@ -56,17 +56,17 @@ class Migration(migrations.Migration):
                 ('type_of_a_proposal', models.CharField(max_length=100, verbose_name='Тип')),
                 ('min_scoring_ball', models.IntegerField(max_length=3, verbose_name='Минимальный скоринговый балл')),
                 ('max_scoring_ball', models.IntegerField(max_length=3, verbose_name='Максимальный скоринговый балл')),
-                ('credit_organization', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='main.Credit_organization')),
+                ('credit_organization', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='api_organization.Credit_organization')),
             ],
         ),
         migrations.AddField(
             model_name='bid',
             name='form',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='main.Form'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='api_organization.Form'),
         ),
         migrations.AddField(
             model_name='bid',
             name='proposal',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='main.Proposal'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='api_organization.Proposal'),
         ),
     ]
