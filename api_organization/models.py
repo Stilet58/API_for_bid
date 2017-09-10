@@ -22,7 +22,7 @@ class Proposal(models.Model):
     credit_organization = models.ForeignKey(Credit_organization, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
-        return str(self.name)
+        return self.name
 
 
 # Модель для выпадающего списка статусов
@@ -30,7 +30,14 @@ class Status_bid(models.Model):
     name = models.CharField('Тип статуса заявки', max_length=50)
 
     def __str__(self):
-        return str(self.name)
+        return self.name
+
+#Типы статуса для заявок
+STATUS_CHOICES = (
+    ('new', 'Новая'),
+    ('sent', 'Отправлена'),
+    ('recieved', 'Получена'),
+)
 
 
 #Модель заявки в кредитную организацию
@@ -39,7 +46,7 @@ class Bid(models.Model):
     date_of_dispatch = models.DateTimeField('Дата и время отправки')
     form = models.ForeignKey(Form, on_delete=models.CASCADE)
     proposal = models.ForeignKey(Proposal, on_delete=models.SET_NULL, null=True)
-    status = models.ForeignKey(Status_bid, null=True, verbose_name='Статус', on_delete=models.SET_NULL)
+    status = models.CharField('Статус', max_length=50, choices=STATUS_CHOICES)
 
     def __str__(self):
-        return str(self.status)
+        return self.status

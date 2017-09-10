@@ -11,4 +11,4 @@ class Form(models.Model):
     scoring_ball = models.IntegerField('Скоринговый балл')
 
     def __str__(self):
-        return str(self.full_name)
+        return self.full_name
