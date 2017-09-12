@@ -18,7 +18,11 @@ class Form(models.Model):
     phone_number = models.CharField('Телефон', max_length=50)
     phone_confirmation = models.CharField('Телефон подтвержден', max_length=5, choices=STATUS_CHOICES, default='Нет')
     passport = models.CharField('Паспорт', max_length=100)
-    scoring_ball = models.IntegerField('Скоринговый балл')
+    scoring_ball = models.IntegerField('Скоринговый балл', blank=True, null=True)
+
+    class Meta:
+        verbose_name = 'Анкета клиента'
+        verbose_name_plural = 'Анкеты клиента'
 
     def __str__(self):
         return self.surname + ' ' + self.first_name + ' ' + self.last_name

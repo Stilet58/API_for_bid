@@ -97,8 +97,8 @@ class ScoringBallListFilter(admin.SimpleListFilter):
                                    scoring_ball__lte=850)
 
 class FormAdmin(admin.ModelAdmin):
-    list_display = ('date_of_creation', 'date_of_change', 'surname', 'first_name', 'last_name', 'dob',
-                    'phone_number', 'phone_confirmation', 'passport', 'scoring_ball') #Сортировка отображения на странице
+    list_display = ('surname', 'first_name', 'last_name', 'dob',
+                    'phone_number', 'phone_confirmation', 'passport', 'scoring_ball', 'date_of_change', 'date_of_creation') #Сортировка отображения на странице
     list_display_links = ('surname', 'first_name', 'last_name')
     list_filter = ['date_of_change', DOBListFilter, ScoringBallListFilter] #Фильтр по дате изменения, дате рождения и скоринговому баллу
     date_hierarchy = 'date_of_creation' #Иерархический фильтр по дате создания
