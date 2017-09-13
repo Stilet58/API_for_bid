@@ -5,7 +5,7 @@ from .models import *
 
 #Фильтр по минимальным скоринговым баллам
 class MinScoringBallListFilter(admin.SimpleListFilter):
-    title = _('Минимальныйкоринговый балл')#Название фильтра
+    title = _('Минимальный cкоринговый балл')#Название фильтра
     parameter_name = 'before850'
 
     def lookups(self, request, model_admin):

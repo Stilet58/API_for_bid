@@ -1,6 +1,7 @@
 from django.db import models
 from api_partners.models import Form
 
+
 #Модель кредитной организации
 class Credit_organization(models.Model):
     date_of_creation = models.DateTimeField('Дата и время создания', auto_now_add=True)
@@ -12,9 +13,9 @@ class Credit_organization(models.Model):
         verbose_name = 'Кредитная организация'
         verbose_name_plural = 'Кредитные организации'
 
-
     def __str__(self):
         return str(self.name)
+
 
 #Модель для предложений
 class Proposal(models.Model):
@@ -26,14 +27,13 @@ class Proposal(models.Model):
     max_scoring_ball = models.IntegerField('Максимальный скоринговый балл')
     start_date_of_rotation = models.DateTimeField('Дата и время начала ротации', blank=True, null=True)
     end_date_of_rotation = models.DateTimeField('Дата и время окончания ротации', blank=True, null=True)
-    credit_organization = models.ForeignKey(Credit_organization,verbose_name='Кредитная организация',
+    credit_organization = models.ForeignKey(Credit_organization, verbose_name='Кредитная организация',
                                             on_delete=models.SET_NULL, null=True)
 
 
     class Meta:
         verbose_name = 'Предложение'
         verbose_name_plural = 'Предложения'
-
 
     def __str__(self):
         return self.name
@@ -45,6 +45,7 @@ STATUS_CHOICES = (
     ('sent', 'Отправлена'),
     ('recieved', 'Получена'),
 )
+
 
 #Модель заявки в кредитную организацию
 class Bid(models.Model):
@@ -58,7 +59,6 @@ class Bid(models.Model):
     class Meta:
         verbose_name = 'Заявка'
         verbose_name_plural = 'Заявки'
-
 
     def __str__(self):
         return self.status

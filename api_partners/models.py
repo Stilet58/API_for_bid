@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Подтверждение телефона
 STATUS_CHOICES = (
     ('Yes', 'Да'),
