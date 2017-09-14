@@ -29,6 +29,6 @@ router.register(r'credit_organizations', CreditOrganizationViewSet)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^api_for_bid/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^api_auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^', include(router.urls)),
 ]

@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
-from .models import *
+from api_organization.models import *
 
 
 #Фильтр по минимальным скоринговым баллам

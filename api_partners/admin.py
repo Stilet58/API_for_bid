@@ -3,6 +3,7 @@ from datetime import date
 from django.utils.translation import ugettext_lazy as _
 from .models import Form
 
+
 #Фильтр по десятилетиям рождения
 class DOBListFilter(admin.SimpleListFilter):
     title = _('Год рождения')#Название фильтра
