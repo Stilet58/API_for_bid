@@ -13,9 +13,22 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
+from rest_framework import routers
+from api_partners.views import *
+from api_organization.views import *
 from django.contrib import admin
+
+
+router = routers.DefaultRouter()
+router.register(r'proposals', ProposalViewSet)
+router.register(r'bids', BidViewSet)
+router.register(r'forms', FormViewSet)
+router.register(r'credit_organizations', CreditOrganizationViewSet)
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^api_for_bid/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^', include(router.urls)),
 ]
