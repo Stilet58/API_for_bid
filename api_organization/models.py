@@ -16,19 +16,27 @@ class Credit_organization(models.Model):
     def __str__(self):
         return str(self.name)
 
+# Типы статуса для заявок
+STATUS_CREDIT = (
+    ('consumer', 'Потребительский кредит'),
+    ('hypothec', 'Ипотека'),
+    ('auto_loan', 'Автокредит'),
+    ('kmsb', 'КМСБ'),
+    )
+
 
 #Модель для предложений
 class Proposal(models.Model):
     date_of_creation = models.DateTimeField('Дата и время создания', auto_now_add=True)
     date_of_change = models.DateTimeField('Дата и время изменения', auto_now=True)
     name = models.CharField('Название предложения', max_length=250)
-    type_of_a_proposal = models.CharField('Тип', max_length=100)
+    type_of_a_proposal = models.CharField('Тип', max_length=100, choices=STATUS_CREDIT)
     min_scoring_ball = models.IntegerField('Минимальный скоринговый балл')
     max_scoring_ball = models.IntegerField('Максимальный скоринговый балл')
     start_date_of_rotation = models.DateTimeField('Дата и время начала ротации', blank=True, null=True)
     end_date_of_rotation = models.DateTimeField('Дата и время окончания ротации', blank=True, null=True)
     credit_organization = models.ForeignKey(Credit_organization, verbose_name='Кредитная организация',
-                                            on_delete=models.SET_NULL, null=True)
+                                            on_delete=models.CASCADE, null=True)
 
 
     class Meta:

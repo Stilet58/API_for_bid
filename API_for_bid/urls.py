@@ -19,6 +19,7 @@ from api_organization.views import *
 from django.contrib import admin
 
 
+#Роутер для автоматизации перехода по url
 router = routers.DefaultRouter()
 router.register(r'proposals', ProposalViewSet)
 router.register(r'bids', BidViewSet)
