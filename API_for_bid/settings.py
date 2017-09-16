@@ -45,7 +45,7 @@ INSTALLED_APPS = [
 
 
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAdminUser'],
+    'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.DjangoModelPermissions'],
     'PAGE_SIZE': 10
 }
 
@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'API_for_bid.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'D:/PythonProject/database/db_for_api.db',
+        'NAME': 'D:/PythonProject/API_for_bid/db_for_api.db',
     }
 }
 

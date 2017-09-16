@@ -75,4 +75,3 @@ class BidAdmin(admin.ModelAdmin):
 admin.site.register(Credit_organization, CreditOrganizationAdmin)
 admin.site.register(Proposal, ProposalAdmin)
 admin.site.register(Bid, BidAdmin)
-
